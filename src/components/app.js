@@ -6,8 +6,8 @@ import * as actions from '../actions';
 import TodoItem from './todo-item';
 
 
-@connect(reduce, bindActions(actions))
-export default class App extends Component {
+// @connect(reduce, bindActions(actions))
+class App extends Component {
   addTodos = () => {
     let { text } = this.state;
     this.setState({ text:'' });
@@ -34,3 +34,8 @@ export default class App extends Component {
     );
   }
 }
+
+/**
+ * connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
+ */
+export default connect(reduce, bindActions(actions))(App);
