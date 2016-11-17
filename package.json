@@ -1,6 +1,6 @@
 {
-  "name": "preact-redux-example",
-  "version": "1.0.0",
+  "name": "preact-redux-demo",
+  "version": "0.0.0",
   "description": "Ready-to-go Preact + Redux starter project, powered by webpack.",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
