@@ -8,19 +8,19 @@ import TodoItem from './todo-item';
 
 @connect(reduce, bindActions(actions))
 export default class App extends Component {
-	addTodos = () => {
-		let { text } = this.state;
-		this.setState({ text:'' });
-		this.props.addTodo(text);
-		return false;
-	};
+  addTodos = () => {
+    let { text } = this.state;
+    this.setState({ text:'' });
+    this.props.addTodo(text);
+    return false;
+  };
 
-	removeTodo = (todo) => {
-		this.props.removeTodo(todo);
-	};
+  removeTodo = (todo) => {
+    this.props.removeTodo(todo);
+  };
 
-	render({ todos }, { text }) {
-		return (
+  render({ todos }, { text }) {
+    return (
 			<div id="app">
 				<form onSubmit={this.addTodos} action="javascript:">
 					<input value={text} onInput={this.linkState('text')} placeholder="New ToDo..." />
@@ -31,6 +31,6 @@ export default class App extends Component {
 					)) }
 				</ul>
 			</div>
-		);
-	}
+    );
+  }
 }

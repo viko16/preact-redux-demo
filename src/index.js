@@ -5,9 +5,9 @@ import App from './components/app';
 import './style';
 
 render((
-	<div id="outer">
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</div>
+  <div id="outer">
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </div>
 ), document.body);
