@@ -10,7 +10,7 @@ let ACTIONS = {
   }),
 
   REMOVE_TODO: ({ todos, ...state }, { todo }) => ({
-    todos: todos.filter( i => i!==todo ),
+    todos: todos.filter( i => i !== todo ),
     ...state
   })
 };
@@ -19,6 +19,8 @@ const INITIAL = {
   todos: []
 };
 
+// createStore(reducer, [initialState], enhancer)
+// 原作者把 reducer 写在这里了
 export default createStore( (state, action) => (
 	action && ACTIONS[action.type] ? ACTIONS[action.type](state, action) : state
 ), INITIAL, window.devToolsExtension && window.devToolsExtension());
