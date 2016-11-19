@@ -1,26 +1,16 @@
+// 构建 store 参数较多，将其独立一个文件
+
 import { createStore } from 'redux';
+import reducer from './reducers';
 
-let ACTIONS = {
-  ADD_TODO: ({ todos, ...state }, { text }) => ({
-    todos: [...todos, {
-      id: Math.random().toString(36).substring(2),
-      text
-    }],
-    ...state
-  }),
-
-  REMOVE_TODO: ({ todos, ...state }, { todo }) => ({
-    todos: todos.filter( i => i !== todo ),
-    ...state
-  })
-};
-
+// 初始值
 const INITIAL = {
   todos: []
 };
 
-// createStore(reducer, [initialState], enhancer)
-// 原作者把 reducer 写在这里了
-export default createStore( (state, action) => (
-	action && ACTIONS[action.type] ? ACTIONS[action.type](state, action) : state
-), INITIAL, window.devToolsExtension && window.devToolsExtension());
+export default createStore(
+  reducer,
+  INITIAL,
+  // https://github.com/zalmoxisus/redux-devtools-extension
+  window.devToolsExtension && window.devToolsExtension()
+);
